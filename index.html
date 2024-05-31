@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>leader-board</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .body {
+        width: 100vw;
+        height: 100vh;
+      }
+      .container {
+        background-color: aqua;
+        text-align: center;
+        padding: 10px;
+      }
+      .container h1 {
+        font-size: 30px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        padding: 20px;
+      }
+      .container .input {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .container .input input,
+      .container .input button {
+        padding: 5px;
+        font-size: 18px;
+      }
+      .player {
+        background-color: rgb(230, 248, 255);
+        display: flex;
+        align-items: center;
+        width: 80%;
+        margin: 10px auto;
+        height: 80px;
+
+        justify-content: space-around;
+      }
+      .player .details {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        font-size: 30px;
+      }
+      .player .details .date {
+        color: rgb(72, 72, 72);
+        font-size: 15px;
+      }
+      .player .country {
+        width: 200px;
+
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .player .score {
+        font-family: monospace;
+        font-size: 20px;
+      }
+      .player .btn {
+        background-color: rgba(255, 255, 255, 0.4);
+        padding: 5px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0px 0px 2px 0px black;
+        transform: scale(1.1);
+      }
+
+      .player .btn:active {
+        transform: scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>LeaderBoard</h1>
+      <div class="input">
+        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+        <input type="text" placeholder="Counrty" />
+        <input type="text" placeholder="Score" />
+        <button>Add player</button>
+      </div>
+      <div class="display-score"></div>
+    </div>
+    <script>
+      const Players = [
+        {
+          first: "Laxmi",
+          last: "Sharma",
+          country: "INDIA",
+          score: "90",
+        },
+        {
+          first: "Ram",
+          last: "Singh",
+          country: "INDIA",
+          score: "90",
+        },
+      ];
+      let temp_div = "";
+      Players.forEach((player) => {
+        temp_div += `<div class="player"> <span class="details">${
+          player.first
+        } ${
+          player.last
+        } <span class="date"> ${new Date().toUTCString()}</span></span> <span class="country">${
+          player.country
+        }</span> <span class="score">${
+          player.score
+        }</span> <span class="bin"><i class="material-icons">&#xe872;</i></span> <span class="btn">+5</span> <span class="btn">-5</span> </div>`;
+      });
+      document.querySelector(".display-score").innerHTML = temp_div;
+    </script>
+  </body>
+</html>
 
